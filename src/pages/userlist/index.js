@@ -3,7 +3,7 @@ import {StyleSheet, Text, View, ScrollView} from 'react-native';
 import Card from './card.js';
 import Axios from 'axios';
 
-const HomeScreen = () => {
+const Userlist = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const HomeScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>User Lists</Text>
+      <Text style={styles.title}>Users List</Text>
       <ScrollView showsVerticalScrollIndicator={false}>
         {users.map(item => (
           <Card style = {styles.card}
@@ -22,7 +22,10 @@ const HomeScreen = () => {
             name ={item.name}
             username ={item.username}
             email={item.email}
-            address={ item.address.street}
+            addressStreet={item.address.street}
+            addressSuite={item.address.suite}
+            addressCity={item.address.city}
+            addressZipCode={item.address.ZipCode}
             phone= {item.phone}
           />
         ))}
@@ -31,7 +34,7 @@ const HomeScreen = () => {
   );
 };
 
-export default HomeScreen;
+export default Userlist;
 
 const styles = StyleSheet.create({
  
@@ -44,18 +47,4 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: '700',
   }, 
-  name: {
-    fontSize: 18,
-    fontWeight: '700',
-  },
-  email: {
-    fontSize: 16,
-    color: 'grey',
-    marginTop: 10,
-  },
-  image: {
-    height: 150,
-    width: 150,
-    marginTop: 10,
-  },
 });

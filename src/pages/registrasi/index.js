@@ -11,17 +11,7 @@ const App = () => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [alamat, setAlamat] = useState('')
-  const [telepon, setTelepon] = React.useState(null);
-
-  useEffect(() => {
-  console.log('component did mount')
-  }, []);
-
-  useEffect(() => {
-    console.log('componen did update')
-
-  }, [welcome])
-
+  const [telepon, setTelepon] = useState('')
 
   const handleSubmit =()=>{
     const data ={
@@ -34,7 +24,6 @@ const App = () => {
     console.log(data)
   }
 
-  console.log('render componen')
   return (
       <ScrollView>
             <View style={styles.container}>
@@ -55,8 +44,6 @@ const App = () => {
       </ScrollView>
   );
 };
-
-
 
 const styles = StyleSheet.create({
   container: {
